@@ -17,17 +17,21 @@ namespace Abc.Northwind.MvcWebUI.Controllers
             _productService = productService;
         }
 
-        public IActionResult Index(int page=1, int categoryId=0)
+        public IActionResult Index(int page = 1, int categoryId = 0)
         {
             int pageSize = 10;
             var products = _productService.GetByCategory(categoryId);
-            ProductListViewModel productListViewModel = new ProductListViewModel
+            ProductListViewModel model = new ProductListViewModel
             {
-                Products = products.Skip((page - 1)*pageSize).Take(pageSize).ToList()
+                Products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+                PageCount = (int)Math.Ceiling(products.Count / (double)pageSize),
+                PageSize = pageSize,
+                CurrentCategory = categoryId,
+                CurrentPage = page
             };
-            
-            return View(productListViewModel);
+
+            return View(model);
         }
-       
-        }
+
+    }
 }

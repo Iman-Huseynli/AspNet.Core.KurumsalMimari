@@ -2,25 +2,35 @@
 
 <h1>Index</h1>
 
-<table class="table table-bordered table-striped">
+<div>
+    <table class="table table-bordered table-striped">
 
-    <thead>
-        <tr>
-            <td>Product name</td>
-            <td>Unit price</td>
-            <td>Unit in stock</td>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model.Products)
-        {
+        <thead>
             <tr>
-                <td>@item.ProductName</td>
-                <td>@item.UnitPrice</td>
-                <td>@item.UnitsInStock</td>
+                <td>Product name</td>
+                <td>Unit price</td>
+                <td>Unit in stock</td>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitsInStock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div>
+    <product-list-pager current-category="@Model.CurrentCategory"
+                        current-page="@Model.CurrentPage"
+                        page-count="@Model.PageCount"
+                        page-size="@Model.PageSize"></product-list-pager>
+</div>
 
