@@ -1,0 +1,17 @@
+﻿@model Abc.Northwind.MvcWebUI.Models.CategoryListViewModel
+@{ 
+    
+}
+
+<div class="list-group">
+    @foreach (var item in Model.Categories)
+    {
+        string css = "list-group-item";
+        if (item.CategoryId == Model.CurrentCategory)
+        {
+            css += " active";
+        }
+
+        <a class="@css" href="/product/index/?categoryId=@item.CategoryId">@item.CategoryName</a>
+    }
+</div>

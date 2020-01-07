@@ -1,0 +1,26 @@
+﻿@model Abc.Northwind.MvcWebUI.Models.ProductListViewModel
+
+<h1>Index</h1>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <td>Product name</td>
+            <td>Unit price</td>
+            <td>Unit in stock</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
