@@ -10,11 +10,11 @@ namespace Abc.Northwind.MvcWebUI.TagHelpers
     [HtmlTargetElement("product-list-pager")]
     public class PagingTagHelper : TagHelper
     {
-        [HtmlAttributeName("page-size")]
-        public int PageSize { get; set; }
-
         [HtmlAttributeName("page-count")]
         public int PageCount { get; set; }
+
+        [HtmlAttributeName("page-size")]
+        public int PageSize { get; set; }
 
         [HtmlAttributeName("current-category")]
         public int CurrentCategory { get; set; }
@@ -31,7 +31,7 @@ namespace Abc.Northwind.MvcWebUI.TagHelpers
             for (int i = 1; i <= PageCount; i++)
             {
                 stringBuilder.AppendFormat("<li class='{0}'>", i == CurrentPage ? "active" : "");
-                stringBuilder.AppendFormat("<a href='/product/index?page={0}&categoryId={1}'>{2}</a>",
+                stringBuilder.AppendFormat("<a class= 'page-link' href ='/product/index?page={0}&categoryId={1}'>{2}</a>",
                     i, CurrentCategory, i);
                 stringBuilder.Append("</li>");
             }
