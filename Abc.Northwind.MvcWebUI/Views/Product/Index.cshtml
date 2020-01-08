@@ -1,4 +1,4 @@
-﻿@model Abc.Northwind.MvcWebUI.Models.ProductListViewModel
+﻿@model ProductListViewModel
 @addTagHelper "*,Microsoft.AspNetCore.Mvc.TagHelpers"
 @addTagHelper "*,Abc.Northwind.MvcWebUI"
 <h1>Index</h1>
@@ -11,6 +11,7 @@
                 <td>Product name</td>
                 <td>Unit price</td>
                 <td>Unit in stock</td>
+                <td></td>
             </tr>
         </thead>
 
@@ -21,6 +22,7 @@
                     <td>@item.ProductName</td>
                     <td>@item.UnitPrice</td>
                     <td>@item.UnitsInStock</td>
+                    <td><a class="btn btn-info btn-sm" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@item.ProductId"> Add to card</a> </td>
                 </tr>
             }
         </tbody>
@@ -28,9 +30,9 @@
 </div>
 
 
-    <product-list-pager current-category="@Model.CurrentCategory"
-                        current-page="@Model.CurrentPage"
-                        page-count="@Model.PageCount"
-                        page-size="@Model.PageSize"></product-list-pager>
+<product-list-pager current-category="@Model.CurrentCategory"
+                    current-page="@Model.CurrentPage"
+                    page-count="@Model.PageCount"
+                    page-size="@Model.PageSize"></product-list-pager>
 
 

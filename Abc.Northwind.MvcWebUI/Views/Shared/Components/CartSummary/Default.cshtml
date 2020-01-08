@@ -1,0 +1,23 @@
+﻿@model CartSummaryViewModel
+@{
+    Layout = null;
+}
+
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <li>
+            <a class="dropdown-item"> @item.Product.ProductName <span class="badge">@item.Quantity</span> </a>
+        </li>
+    }
+    <li class="dropdown-divider"></li>
+    <li>
+        <a><span class="glyphicon glyphicon-align-left glyphicon-shopping-cart" aria-hidden="true">@Model.Cart.Total</span></a>
+    </li>
+
+    <li class="dropdown-divider"></li>
+    <li>
+        <a class="btn btn-info" asp-controller="Cart" asp-action="List"> Go to cart details</a>
+    </li>
+</ul>
